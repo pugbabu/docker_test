@@ -1,6 +1,10 @@
 # 使用node稳定版作为基础镜像
 FROM node:lts-alpine
 
+# 安装nginx
+RUN apt-get update \
+    && apt-get install -y nginx
+
 # 如果你在国内，这行配置很有必要，不然打包会非常非常慢。
 RUN npm config set registry https://registry.npm.taobao.org
 
